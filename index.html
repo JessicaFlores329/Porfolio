@@ -1,24 +1,88 @@
 <!DOCTYPE html>
-<html>
-<title>My Portfolio</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<html lang="en">
+<head>
+  <title>Jessica Flores | Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
-.w3-row-padding img {margin-bottom: 12px}
-.bgimg {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url('jf.jpg'); /* Replace with your own background image if needed */
-  min-height: 100%;
-}
-</style>
+  <!-- W3.CSS & Fonts -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+  <!-- Animate on Scroll -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body, h1, h2, h3, h4, h5, h6 {
+      font-family: "Montserrat", sans-serif
+    }
+
+    .w3-row-padding img {
+      margin-bottom: 12px
+    }
+
+    .bgimg {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url('images/jf.jpg');
+      min-height: 100%;
+    }
+
+    /* Typing effect */
+    .typed-text {
+      font-size: 18px;
+      border-right: 2px solid #000;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    .neon-btn {
+      background-color: black;
+      color: white;
+      border: 1px solid white;
+      box-shadow: 0 0 5px white, 0 0 10px cyan;
+    }
+
+    .neon-btn:hover {
+      background-color: cyan;
+      color: black;
+    }
+
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: black;
+      color: white;
+      padding: 12px;
+      border-radius: 50%;
+      display: none;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 0 10px cyan;
+    }
+
+    #contact input, #contact textarea {
+      padding: 10px;
+      width: 100%;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
 <body>
 
 <!-- Sidebar with image -->
@@ -28,88 +92,90 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
 <!-- Hidden Sidebar -->
 <nav class="w3-sidebar w3-black w3-animate-right w3-xxlarge" style="display:none;padding-top:150px;right:0;z-index:2" id="mySidebar">
-  <a href="javascript:void(0)" onclick="closeNav()" class="w3-button w3-black w3-xxxlarge w3-display-topright" style="padding:0 12px;">
-    <i class="fa fa-remove"></i>
-  </a>
+  <a href="javascript:void(0)" onclick="closeNav()" class="w3-button w3-black w3-xxxlarge w3-display-topright" style="padding:0 12px;"><i class="fa fa-remove"></i></a>
   <div class="w3-bar-block w3-center">
     <a href="#home" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Home</a>
     <a href="#portfolio" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Portfolio</a>
     <a href="#about" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">About</a>
+    <a href="#education" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Education</a>
     <a href="#contact" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Contact</a>
   </div>
 </nav>
 
-<!-- Page Content -->
+<!-- Main Content -->
 <div class="w3-main w3-padding-large" style="margin-left:40%">
 
   <!-- Menu icon -->
-  <span class="w3-button w3-top w3-white w3-xxlarge w3-text-grey w3-hover-text-black" style="width:auto;right:0;" onclick="openNav()">
-    <i class="fa fa-bars"></i>
-  </span>
+  <span class="w3-button w3-top w3-white w3-xxlarge w3-text-grey w3-hover-text-black" style="width:auto;right:0;" onclick="openNav()"><i class="fa fa-bars"></i></span>
 
   <!-- Header -->
-  <header class="w3-container w3-center" style="padding:128px 16px" id="home">
+  <header class="w3-container w3-center" style="padding:128px 16px" id="home" data-aos="fade-down">
     <h1 class="w3-jumbo"><b>Jessica Flores</b></h1>
-    <p>3rd Year IT Student | Aspiring Web Developer</p>
+    <p class="typed-text">3rd Year IT Student | Aspiring Web Developer</p>
     <img src="https://www.w3schools.com/w3images/avatar5.png" class="w3-image w3-round" style="width:60%;max-width:300px;margin:auto;">
   </header>
 
-  <!-- Portfolio Section -->
-  <div class="w3-padding-32 w3-content" id="portfolio">
+  <!-- Portfolio -->
+  <div class="w3-padding-32 w3-content" id="portfolio" data-aos="fade-up">
     <h2 class="w3-text-grey">My Portfolio</h2>
     <hr class="w3-opacity">
     <p>You can view my projects on GitHub:</p>
-    <p>
-      <a href="https://github.com/JessicaFlores329" target="_blank" class="w3-button w3-black w3-large">
-        <i class="fa fa-github"></i> Visit My GitHub
-      </a>
-    </p>
+    <p><a href="https://github.com/JessicaFlores329" target="_blank" class="w3-button neon-btn"><i class="fa fa-github"></i> Visit My GitHub</a></p>
   </div>
 
-  <!-- About Section -->
-  <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="about">
+  <!-- About -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="about" data-aos="fade-right">
     <h2>About Me</h2>
     <hr class="w3-opacity">
-    <p>
-      I'm currently a 3rd-year Information Technology student with a strong interest in web development, networking, and cybersecurity. I enjoy building simple but functional websites, learning new technologies, and collaborating on coding projects.
-    </p>
-
+    <p>I'm a 3rd-year Information Technology student passionate about front-end development, Laravel-based systems, and learning modern web technologies. I enjoy coding, designing user-friendly interfaces, and contributing to meaningful projects.</p>
     <h3 class="w3-padding-16">My Skills</h3>
-    <p class="w3-wide">HTML</p>
-    <div class="w3-light-grey">
-      <div class="w3-container w3-center w3-padding-small w3-dark-grey" style="width:80%">80%</div>
+    <div>
+      <p class="w3-wide">HTML</p><div class="w3-light-grey"><div class="w3-container w3-center w3-padding-small w3-dark-grey" style="width:80%">80%</div></div>
+      <p class="w3-wide">CSS</p><div class="w3-light-grey"><div class="w3-container w3-center w3-padding-small w3-dark-grey" style="width:75%">75%</div></div>
+      <p class="w3-wide">JavaScript</p><div class="w3-light-grey"><div class="w3-container w3-center w3-padding-small w3-dark-grey" style="width:70%">70%</div></div>
+      <p class="w3-wide">PHP</p><div class="w3-light-grey"><div class="w3-container w3-center w3-padding-small w3-dark-grey" style="width:75%">75%</div></div>
+      <p class="w3-wide">Laravel</p><div class="w3-light-grey"><div class="w3-container w3-center w3-padding-small w3-dark-grey" style="width:75%">75%</div></div>
     </div>
-    <p class="w3-wide">CSS</p>
-    <div class="w3-light-grey">
-      <div class="w3-container w3-center w3-padding-small w3-dark-grey" style="width:70%">%75</div>
-    </div>
-    <p class="w3-wide">JavaScript</p>
-    <div class="w3-light-grey">
-      <div class="w3-container w3-center w3-padding-small w3-dark-grey" style="width:80%">80%</div>
-    </div>
-    <p class="w3-wide">PHP</p>
-    <div class="w3-light-grey">
-      <div class="w3-container w3-center w3-padding-small w3-dark-grey" style="width:75%">75%</div>
-    </div>
-    <p class="w3-wide">LARAVEL</p>
-    <div class="w3-light-grey">
-      <div class="w3-container w3-center w3-padding-small w3-dark-grey" style="width:75%">75%</div>
-    </div>
-    <br>
   </div>
- 
+
+  <!-- Education -->
+  <div class="w3-padding-32 w3-content" id="education" data-aos="fade-left">
+    <h2 class="w3-text-grey">Education</h2>
+    <hr class="w3-opacity">
+    <p><b>Bachelor of Science in Information Technology</b></p>
+    <p>Southern Leyte State University – Bontoc Campus</p>
+    <p>Expected Graduation: 2026</p>
+    <p>Currently in my third year. Areas of interest include web development, networking, and cybersecurity.</p>
+  </div>
+
+  <!-- Contact -->
+  <div class="w3-padding-32 w3-content" id="contact" data-aos="fade-up">
+    <h2 class="w3-text-grey">Contact Me</h2>
+    <hr class="w3-opacity">
+    <form action="mailto:youremail@example.com" method="POST" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="w3-button neon-btn">Send Message</button>
+    </form>
+  </div>
 
   <!-- Footer -->
   <footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>
     <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-github w3-hover-opacity"></i>
+    <a href="https://github.com/JessicaFlores329" target="_blank"><i class="fa fa-github w3-hover-opacity"></i></a>
     <i class="fa fa-linkedin w3-hover-opacity"></i>
   </footer>
 </div>
 
+<!-- Back to Top -->
+<div id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+  ↑
+</div>
+
+<!-- Scripts -->
 <script>
-// Open and close sidebar
 function openNav() {
   document.getElementById("mySidebar").style.width = "60%";
   document.getElementById("mySidebar").style.display = "block";
@@ -117,7 +183,15 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidebar").style.display = "none";
 }
+
+window.onscroll = function () {
+  document.getElementById("backToTop").style.display = (document.documentElement.scrollTop > 200) ? "block" : "none";
+};
 </script>
+
+<!-- AOS Scroll Reveal Animation -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>AOS.init({ duration: 1000 });</script>
 
 </body>
 </html>
